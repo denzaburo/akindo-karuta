@@ -1,0 +1,137 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:transparent;overflow:hidden;user-select:none;
+font-family:"Yu Gothic UI","Hiragino Sans","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+#w{--t:1.25;width:620px;background:#fff;border-radius:12px;overflow:hidden;position:relative;
+box-shadow:0 6px 26px rgba(0,0,0,.28)}
+#bar{cursor:move;flex-wrap:nowrap;gap:6px}
+#nav span,.k,#lk,#ovx{cursor:pointer}
+#ka,#yo{user-select:text}
+#tp{font-size:11px !important;border:1px solid #e8e4da;background:#fff;min-width:22px;text-align:center}
+#tp.on{background:#2a2723;color:#fff;border-color:#2a2723}
+#cl{font-size:13px !important;border:1px solid #e8e4da;background:#fff;min-width:22px;text-align:center;line-height:1.1}
+#cl:hover{background:#a86a5e;color:#fff;border-color:#a86a5e}
+#bar{display:flex;align-items:center;justify-content:space-between;padding:7px 13px;background:#fff;border-bottom:1px solid #e8e4da}
+#bar b{font-size:11.5px;font-weight:600;color:#8a7f66;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#nav{display:flex;align-items:center;gap:2px;flex:none;white-space:nowrap}
+#nav span{cursor:pointer;padding:2px 6px;color:#b0a894;font-size:13px;user-select:none;border-radius:4px}
+#nav span:hover{background:#f0ede4;color:#6b6252}
+#ix{font-size:11px !important;border:1px solid #e2ded2;background:#fff;margin-right:5px}
+#zm{font-size:11px !important;border:1px solid #e2ded2;background:#fff;margin-left:5px;min-width:22px;text-align:center}
+#mn{font-size:12px !important;border:1px solid #e2ded2;background:#fff;min-width:22px;text-align:center;line-height:1.1}
+
+/* ---- 本体：左に絵札、右に週の日付と読み札 ---- */
+#body{display:grid;grid-template-columns:214px 1fr;grid-template-rows:auto 1fr;height:320px}
+#pic{grid-row:1/3;padding:14px 0 14px 14px;display:flex;align-items:center;justify-content:center;min-height:0;min-width:0}
+#im{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:4px}
+#cal{grid-column:2;padding:11px 15px 9px;background:#f4f2ec;border-bottom:1px solid #e8e4da}
+#hd{display:flex;align-items:baseline;gap:9px}
+#wk{font-size:calc(11px*var(--t));color:#a09884;letter-spacing:.05em;white-space:nowrap}
+#rg{font-size:calc(16px*var(--t));font-weight:600;color:#2a2723;white-space:nowrap}
+#gr{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-top:6px}
+.d{text-align:center;padding:4px 0 3px;border-radius:6px}
+.d .n{font-size:calc(9.5px*var(--t));color:#a8a094;margin-bottom:1px}
+.d .v{font-size:calc(13px*var(--t));font-weight:600;color:#2a2723;line-height:1.2}
+.d.sat .n,.d.sat .v{color:#5a7a9e}
+.d.sun .n,.d.sun .v{color:#a86a5e}
+.d.tdy{background:#2a2723}
+.d.tdy .n,.d.tdy .v{color:#fff}
+#tx{grid-column:2;display:flex;flex-direction:column;min-height:0;padding:11px 15px 13px;gap:8px}
+#yo{flex:none;font-size:calc(14px*var(--t));font-weight:600;color:#2a2723;line-height:1.45;
+padding-bottom:8px;border-bottom:1px solid #e8e4da;letter-spacing:.01em}
+#ka{flex:1;min-height:0;font-size:calc(11px*var(--t));line-height:1.8;color:#6b6252;text-align:justify;overflow-y:auto;padding-right:4px;white-space:pre-line}
+#ka::-webkit-scrollbar,#ovg::-webkit-scrollbar{width:5px}
+#ka::-webkit-scrollbar-thumb,#ovg::-webkit-scrollbar-thumb{background:#d8d2c2;border-radius:3px}
+#ka::-webkit-scrollbar-thumb:hover{background:#bdb5a0}
+#ka::-webkit-scrollbar-track{background:transparent}
+#lg{display:none;height:15px;width:auto;margin:3px auto 0;flex:none}
+#lk{display:none;margin-top:2px;align-self:center;font-size:calc(11px*var(--t));color:#8a6f3a;text-decoration:none;
+border:1px solid #e0d3b4;background:#fffdf6;border-radius:5px;padding:5px 12px;white-space:nowrap}
+#lk:hover{background:#faf3e2;color:#6b5527}
+
+/* 読み札のない週（新年・年末・会社紹介など） */
+#w.full #yo{display:none}
+#w.full #ka{text-align:center;display:flex;flex-direction:column;justify-content:center;line-height:1.95}
+#w.full.left #ka{text-align:left;white-space:normal;justify-content:flex-start}
+#ka b{display:block;color:#2b2b2b;font-weight:700;margin-top:9px}
+#ka b:first-child{margin-top:0}
+#ka p{margin:1px 0 0}
+/* 横長の絵（会社紹介）：絵を上いっぱいに */
+#w.wide #body{grid-template-columns:1fr;grid-template-rows:auto auto 1fr;height:400px}
+#w.wide #cal{grid-row:1;grid-column:1}
+#w.wide #pic{grid-row:2;grid-column:1;padding:12px 14px 0}
+#w.wide #im{max-height:150px}
+#w.wide #tx{grid-row:3;grid-column:1}
+
+/* 最小化：日付と読み札だけ */
+#w.mini #body{grid-template-columns:1fr;height:auto}
+#w.mini #pic,#w.mini #ka,#w.mini #lg,#w.mini #lk{display:none}
+#w.mini #cal,#w.mini #tx{grid-column:1}
+#w.mini #tx{padding:10px 15px 12px}
+#w.mini #yo{border-bottom:none;padding-bottom:0}
+#w.mini.full #tx{display:none}
+
+/* 札一覧 */
+#ov{position:absolute;inset:0;background:#fff;display:none;flex-direction:column;z-index:5}
+#ov.on{display:flex}
+#ovh{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#f4f2ec;border-bottom:1px solid #e8e4da}
+#ovh b{font-size:12px;font-weight:600;color:#8a7f66}
+#ovx{cursor:pointer;font-size:11.5px;color:#6b6252;border:1px solid #e2ded2;background:#fff;
+border-radius:5px;padding:4px 10px;user-select:none;white-space:nowrap}
+#ovx:hover{background:#f2efe6;border-color:#d3c9ae}
+#ovg{flex:1;overflow-y:auto;padding:12px;display:grid;grid-template-columns:repeat(10,1fr);gap:6px;align-content:start}
+.k{text-align:center;padding:7px 0 5px;border:1px solid #e8e4da;border-radius:7px;cursor:pointer;background:#fff}
+.k:hover{background:#faf7ef;border-color:#dcd3bb}
+.k.now{background:#2a2723;border-color:#2a2723}
+.k em{display:block;font-style:normal;font-size:17px;font-weight:600;color:#2a2723;line-height:1.1}
+.k s{display:block;text-decoration:none;font-size:9px;color:#b0a894;margin-top:2px}
+.k.now em{color:#fff}.k.now s{color:#a29a86}
+#ovf{padding:9px 14px;border-top:1px solid #e8e4da;font-size:calc(13px*var(--t));font-weight:600;line-height:1.55;
+color:#2a2723;background:#f4f2ec;min-height:50px;display:flex;align-items:center}
+#ovf.hint{font-size:11.5px;font-weight:400;color:#a09884}
+
+#mnav,#foot{display:none}
+/* ---- Web版（ブラウザで開いたとき） ---- */
+body.web{background:#eceae4;overflow:auto;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 12px}
+body.web #mn,body.web #tp,body.web #cl{display:none}
+body.web #bar{cursor:default}
+/* スマホ：縦に並べる（日付 → 絵札 → 読み札） */
+@media (max-width:640px){
+ body.web{padding:0;background:#fff;display:block}
+ body.web #w{--t:1;width:100%;min-height:100vh;border-radius:0;box-shadow:none}
+ body.web #zm{display:none}
+ body.web #bar{padding:10px 16px}
+ body.web #bar b{font-size:13px}
+ body.web #nav span{font-size:16px;padding:4px 9px}
+ body.web #ix{font-size:12px !important}
+ body.web #body{display:flex;flex-direction:column;height:auto}
+ body.web #cal{order:1;padding:14px 16px 12px}
+ body.web #rg{font-size:20px}
+ body.web #wk{font-size:12px}
+ body.web #gr{gap:3px;margin-top:8px}
+ body.web .d{padding:6px 0 5px}
+ body.web .d .n{font-size:11px}
+ body.web .d .v{font-size:17px}
+ body.web #pic{order:2;padding:16px 16px 0}
+ body.web #im{max-height:62vh;max-width:100%}
+ body.web #w.wide #im{max-height:none}
+ body.web #tx{order:3;padding:14px 16px 12px;gap:10px}
+ body.web #yo{font-size:18px;line-height:1.5}
+ body.web #ka{font-size:14.5px;line-height:1.9;overflow:visible;flex:none;text-align:left}
+ body.web #w.full #ka{text-align:center}
+ body.web #w.full.left #ka{text-align:left}
+ body.web #w.wide #body{display:flex;height:auto}
+ body.web #w.wide #pic{padding:16px 16px 0}
+ body.web #lk{font-size:14px;padding:8px 16px}
+ body.web #pv,body.web #td,body.web #nx{display:none}
+ body.web #mnav{display:flex;justify-content:space-between;align-items:center;padding:6px 10px 14px;gap:8px}
+ body.web #mnav span{flex:1;text-align:center;font-size:15px;color:#6b6252;border:1px solid #e2ded2;border-radius:8px;padding:11px 0;cursor:pointer;user-select:none}
+ body.web #mnav span:active{background:#f0ede4}
+ body.web #mtd{flex:.8;font-weight:600;color:#2a2723}
+ body.web #foot{display:block;text-align:center;font-size:11.5px;color:#a09884;padding:0 16px 28px}
+ body.web #w.mini #mnav{display:flex}
+ body.web #ovg{grid-template-columns:repeat(5,1fr);gap:8px;padding:14px}
+ body.web .k{padding:10px 0 7px}
+ body.web .k em{font-size:22px}
+ body.web .k s{font-size:11px}
+ body.web #ovf{min-height:64px;font-size:16px}
+}

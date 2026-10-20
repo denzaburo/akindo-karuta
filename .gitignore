@@ -1,0 +1,7 @@
+# ビルド生成物（大きいので入れない）
+src-tauri/target/
+src-tauri/gen/
+# OS・エディタの一時ファイル
+Thumbs.db
+.DS_Store
+*.swp
