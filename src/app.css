@@ -91,6 +91,7 @@ color:#2a2723;background:#f4f2ec;min-height:50px;display:flex;align-items:center
 
 #mnav,#foot{display:none}
 /* ---- Web版（ブラウザで開いたとき） ---- */
+html.web{overflow:auto;height:auto;-webkit-text-size-adjust:100%}
 body.web{background:#eceae4;overflow:auto;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 12px}
 body.web #mn,body.web #tp,body.web #cl{display:none}
 body.web #bar{cursor:default}

@@ -6,7 +6,7 @@ const LOGO='assets/logo.png';
 const A=new Date(2026,0,5), A27=new Date(2027,0,4), DN=['月','火','水','木','金','土','日'];
 const FIRST=40, LAST=106;
 const T=window.__TAURI__, inv=T?T.core.invoke:null;
-document.body.className=inv?'app':'web';
+document.body.className=document.documentElement.className=inv?'app':'web';
 const key=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 const gIdx=d=>d.getFullYear()<=2026
  ?(d<A?1:Math.floor((d-A)/6048e5)+2)
