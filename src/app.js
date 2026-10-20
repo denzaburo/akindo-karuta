@@ -67,9 +67,11 @@ document.addEventListener('touchend',e=>{if(sx==null)return;const t=e.changedTou
 const Z={小:1,中:1.2,大:1.45}, ZK=Object.keys(Z);
 let z=1.2, mini=false;
 let onTop=true;
+// Web版（PCブラウザ）は常に「大」。画面が狭ければ収まる倍率まで下げる
+const webZoom=()=>window.innerWidth>640?Math.min(1.45,(window.innerWidth-32)/620):1;
 const zName=()=>{for(const k of ZK)if(Math.abs(Z[k]-z)<.03)return k;return Math.round(z*100)+'%'};
 function ui(){
- w.style.zoom=(inv||window.innerWidth>640)?z:1;
+ w.style.zoom=inv?z:webZoom();
  zm.textContent=zName();
  w.classList.toggle('mini',mini);
  mn.textContent=mini?'＋':'－';
@@ -95,7 +97,8 @@ function fit(){
 // ウィンドウの端をドラッグして大きさを変えたら、幅に合わせて倍率を決め直す
 let rz=null;
 window.addEventListener('resize',()=>{
- if(!inv||fitting)return;
+ if(!inv){w.style.zoom=webZoom();return}
+ if(fitting)return;
  clearTimeout(rz);
  rz=setTimeout(()=>{
   const nz=Math.min(2.2,Math.max(.7,Math.round(window.innerWidth/620*100)/100));

@@ -81,13 +81,17 @@ color:#2a2723;background:#f4f2ec;min-height:50px;display:flex;align-items:center
 /* ---- Web版（ブラウザで開いたとき） ---- */
 html.web{overflow:auto;height:auto;-webkit-text-size-adjust:100%}
 body.web{background:#eceae4;overflow:auto;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:36px 12px}
-body.web #w{zoom:1.4}
-body.web #mn,body.web #tp,body.web #cl{display:none}
+body.web #mn,body.web #tp,body.web #cl,body.web #zm,body.web #pv,body.web #td,body.web #nx{display:none}
+/* PCブラウザ：週送りボタンを札の下に */
+body.web #mnav{display:flex;justify-content:center;gap:10px;padding:0 15px 14px;border-top:1px solid #e8e4da;padding-top:12px}
+body.web #mnav span{min-width:120px;text-align:center;font-size:13px;color:#6b6252;border:1px solid #ddd8ca;background:#fff;border-radius:7px;padding:8px 0;cursor:pointer;user-select:none}
+body.web #mnav span:hover{background:#f4f2ec}
+body.web #mtd{font-weight:600;color:#2a2723}
 body.web #bar{cursor:default}
 /* スマホ：週 → 読み札 → 絵札 → 解説 → 週送り */
 @media (max-width:640px){
  body.web{padding:0;background:#fff;display:block}
- body.web #w{--t:1;zoom:1;width:100%;min-height:100vh;border-radius:0;box-shadow:none}
+ body.web #w{--t:1;width:100%;min-height:100vh;border-radius:0;box-shadow:none}
  body.web #zm{display:none}
  body.web #bar{padding:10px 16px}
  body.web #bar b{font-size:13px}
@@ -106,9 +110,8 @@ body.web #bar{cursor:default}
  body.web #w.full.left #ka{text-align:left}
  body.web #lg{order:5;margin:12px auto 0}
  body.web #lk{order:5;margin:12px auto 0;font-size:14px;padding:8px 16px}
- body.web #pv,body.web #td,body.web #nx{display:none}
- body.web #mnav{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:22px 16px 0}
- body.web #mnav span{flex:1;text-align:center;font-size:15px;color:#6b6252;border:1px solid #ddd8ca;background:#fff;border-radius:8px;padding:11px 0;cursor:pointer;user-select:none}
+ body.web #mnav{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:22px 16px 0;border-top:none}
+ body.web #mnav span{flex:1;min-width:0;text-align:center;font-size:15px;color:#6b6252;border:1px solid #ddd8ca;background:#fff;border-radius:8px;padding:11px 0;cursor:pointer;user-select:none}
  body.web #mnav span:active{background:#f0ede4}
  body.web #mtd{flex:.8;font-weight:600;color:#2a2723}
  body.web #foot{display:block;text-align:center;font-size:11.5px;color:#a09884;padding:14px 16px 28px}
