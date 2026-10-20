@@ -27,14 +27,8 @@ let i=FIRST;
 function draw(){
  const c=D[gWeek(i)], ds=dates(i);
  wk.textContent=gYear(i)+'年 第'+gWeek(i)+'週';
- const f=x=>(x.getMonth()+1)+'月'+x.getDate()+'日';
- rg.textContent=f(ds[0])+' — '+f(ds[ds.length-1]);
- gr.style.gridTemplateColumns='repeat('+(gWeek(i)===1?ds.length:7)+',1fr)';
- gr.innerHTML='';
- ds.forEach(d=>{const w=(d.getDay()+6)%7,e=document.createElement('div');
-  e.className='d'+(w===5?' sat':w===6?' sun':'')+(key(d)===key(today)?' tdy':'');
-  e.innerHTML='<div class="n">'+DN[w]+'</div><div class="v">'+d.getDate()+'</div>';
-  gr.appendChild(e)});
+ const f=x=>(x.getMonth()+1)+'/'+x.getDate();
+ rg.textContent=f(ds[0])+'–'+f(ds[ds.length-1]);
  w.classList.toggle('full',!c.yomi);
  w.classList.toggle('wide',!!c.wide);
  w.classList.toggle('left',!!c.sections);
