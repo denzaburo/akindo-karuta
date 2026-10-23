@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>あきんどカルタ</title>
+<!--
+  受取ページ（2026-10-23）
+  ・Windows版のリンク先は GitHub Releases の latest。exe をリリースに添付すると有効になる
+  ・Web版は同じサイトの index.html
+  ・問い合わせ先は置かない／Windows 11以外の案内はしない
+-->
+<style>
+  :root{--ink:#111;--paper:#fff;--bg:#f2f2f2;--line:#d4d4d4;--dim:#777}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);line-height:2;font-size:15px;
+    font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif}
+  header{background:var(--paper);border-bottom:1px solid var(--line);text-align:center;padding:52px 20px 48px}
+  h1{font-size:26px;letter-spacing:.08em;line-height:1.6}
+  header p{max-width:36em;margin:14px auto 0;font-size:14.5px}
+  .btns{display:flex;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap}
+  .btn{display:inline-block;min-width:240px;background:var(--ink);color:#fff;text-decoration:none;
+    padding:15px 28px;border-radius:4px;font-size:16px;letter-spacing:.08em;line-height:1.5}
+  .btn small{display:block;font-size:11.5px;letter-spacing:.04em;opacity:.8}
+  .btn.sub{background:var(--paper);color:var(--ink);border:1px solid var(--ink)}
+  .btn:hover{opacity:.8}
+  main{max-width:36em;margin:0 auto;padding:32px 20px 60px}
+  .notes{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px 28px}
+  .notes h2{font-size:13px;letter-spacing:.15em;color:var(--dim);font-weight:600;margin:10px 0 2px}
+  .notes h2:first-child{margin-top:0}
+  .notes p{font-size:14.5px;padding:6px 0}
+  code{background:var(--bg);padding:2px 8px;border-radius:3px;font-size:13px}
+  footer{text-align:center;font-size:12.5px;color:var(--dim);margin-top:32px;line-height:2.2}
+  footer b{color:var(--ink)}
+  @media(max-width:600px){
+    header{padding:40px 18px 36px}
+    h1{font-size:22px;letter-spacing:.04em}
+    header p{font-size:14px;line-height:1.9}
+    .btns{flex-direction:column;gap:10px;margin:24px 4px 0}
+    .btn{min-width:0;display:block;padding:15px 12px}
+    main{padding:24px 16px 44px}
+    .notes{padding:20px 18px}
+    .notes p{font-size:14px}
+    code{word-break:break-all}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>あきんどカルタ</h1>
+  <p>商人（あきんど）の心得46札を、週替わりで。<br>デスクトップに置くWidget版と、ブラウザで開くWeb版。</p>
+  <div class="btns">
+    <a class="btn" href="https://github.com/denzaburo/akindo-karuta/releases/latest/download/akindo-karuta.exe">Widget版（Windows）<small>ダウンロード / Windows 11・インストール不要</small></a>
+    <a class="btn sub" href="./">Web版（PC・スマホ）<small>ブラウザで開く</small></a>
+  </div>
+</header>
+
+<main>
+  <div class="notes">
+    <h2>Widget版（Windows）</h2>
+    <p>初回起動時に「WindowsによってPCが保護されました」と出たら、<b>詳細情報 → 実行</b>。2回目からは出ません。</p>
+    <p>「✕」で閉じるとタスクトレイに隠れます。終了はトレイアイコンの右クリックから。</p>
+    <p>やめるときは exe を消すだけ。設定も消すなら <code>%APPDATA%\jp.denzaburo.akindo-karuta</code> ごと削除。</p>
+    <h2>Web版（PC・スマホ）</h2>
+    <p>スマホは、ブラウザの「ホーム画面に追加」でアプリのように開けます。</p>
+  </div>
+
+  <footer>
+    <b>NPO法人伝三郎商会</b>
+  </footer>
+</main>
+</body>
+</html>

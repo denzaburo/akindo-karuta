@@ -33,10 +33,9 @@ box-shadow:0 6px 26px rgba(0,0,0,.28)}
 .d i{display:block;font-style:normal;font-weight:400;font-size:calc(8px*var(--t));color:#a8a094;margin-bottom:1px}
 .d.sat,.d.sat i{color:#5a7a9e}
 .d.sun,.d.sun i{color:#a86a5e}
-/* 今日：数字の下に短い下線 */
-.d.tdy::after{content:'';position:absolute;left:30%;right:30%;bottom:2px;height:2px;border-radius:1px;background:#2a2723}
-.d.tdy.sat::after{background:#5a7a9e}
-.d.tdy.sun::after{background:#a86a5e}
+/* 今日：黒地 */
+.d.tdy,.d.tdy.sat,.d.tdy.sun{background:#2a2723;color:#fff}
+.d.tdy i,.d.tdy.sat i,.d.tdy.sun i{color:#cfc8b8}
 #yo{flex:none;font-size:calc(15px*var(--t));font-weight:600;color:#2a2723;line-height:1.45;margin-top:2px;
 padding-bottom:8px;border-bottom:1px solid #e8e4da;letter-spacing:.01em}
 #ka{flex:1;min-height:0;font-size:calc(11px*var(--t));line-height:1.8;color:#6b6252;text-align:justify;overflow-y:auto;padding-right:4px;white-space:pre-line}
@@ -113,7 +112,6 @@ body.web #bar{cursor:default}
  body.web #wk,body.web #rg{font-size:13px}
  body.web #gr{order:2;margin:8px 16px 0;gap:4px}
  body.web .d{font-size:16px;padding:7px 0 7px}
- body.web .d.tdy::after{bottom:3px;height:2.5px}
  body.web .d i{font-size:11px;margin-bottom:2px}
  body.web #yo{order:2;font-size:18px;line-height:1.5;padding:12px 16px 0;margin:0;border-bottom:none}
  body.web #pic,body.web #w.wide #pic{order:3;padding:14px 16px 0}
