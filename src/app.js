@@ -29,6 +29,11 @@ function draw(){
  wk.textContent=gYear(i)+'年 第'+gWeek(i)+'週';
  const f=x=>(x.getMonth()+1)+'/'+x.getDate();
  rg.textContent=f(ds[0])+'–'+f(ds[ds.length-1]);
+ // 週の日付列（今日を黒地で示す）
+ gr.innerHTML='';
+ ds.forEach(d=>{const w=(d.getDay()+6)%7,e=document.createElement('span');
+  e.className='d'+(w===5?' sat':w===6?' sun':'')+(key(d)===key(today)?' tdy':'');
+  e.innerHTML='<i>'+DN[w]+'</i>'+d.getDate();gr.appendChild(e)});
  w.classList.toggle('full',!c.yomi);
  w.classList.toggle('wide',!!c.wide);
  w.classList.toggle('left',!!c.sections);
